@@ -1,0 +1,47 @@
+.que-container {
+	padding: 30px;
+	/* margin-top: 40px; */
+}
+
+.que {
+	text-align: center;
+	font-size: large;
+	font-weight: 700;
+	letter-spacing: 1px;
+	border-radius: 18px;
+	border: 2px solid black;
+	padding: 18px;
+}
+
+.option-container {
+	display: grid;
+	grid-template-columns: auto auto;
+}
+
+.option-container > p {
+	cursor: pointer;
+	padding: 8px 16px;
+	font-size: 20px;
+	border: 1px solid black;
+	border-radius: 16px;
+	margin: 8px;
+}
+
+.option-container > p:hover {
+	background-color: rgb(241, 220, 220);
+}
+
+.button-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.button {
+	cursor: pointer;
+	font-size: 16px;
+	padding: 8px;
+	border: 1px solid brown;
+	border-radius: 8px;
+	margin: 14px;
+}
