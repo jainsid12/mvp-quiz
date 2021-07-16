@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import questions from "./questions";
 import "./Quiz.css";
 
-const Quiz = () => {
+const Quiz = (props) => {
+	console.log(questions.length);
 	const [i, setI] = useState(0);
 
 	const [a, setA] = useState("");
@@ -19,10 +20,10 @@ const Quiz = () => {
 
 	const { que, option, answer } = questions[i];
 	const handleClick = () => {
-		if (option[0] == answer) setA("green");
-		if (option[1] == answer) setB("green");
-		if (option[2] == answer) setC("green");
-		if (option[3] == answer) setD("green");
+		if (option[0] == answer) setA("rgb(77, 230, 77)");
+		if (option[1] == answer) setB("rgb(77, 230, 77)");
+		if (option[2] == answer) setC("rgb(77, 230, 77)");
+		if (option[3] == answer) setD("rgb(77, 230, 77)");
 	};
 
 	return (
@@ -32,7 +33,7 @@ const Quiz = () => {
 				<p
 					onClick={() => {
 						handleClick();
-						if (option[0] !== answer) setA("red");
+						if (option[0] !== answer) setA("rgb(243, 114, 114)");
 					}}
 					style={{ backgroundColor: a }}>
 					A. {option[0]}
@@ -40,7 +41,7 @@ const Quiz = () => {
 				<p
 					onClick={() => {
 						handleClick();
-						if (option[1] !== answer) setB("red");
+						if (option[1] !== answer) setB("rgb(243, 114, 114)");
 					}}
 					style={{ backgroundColor: b }}>
 					B. {option[1]}
@@ -48,7 +49,7 @@ const Quiz = () => {
 				<p
 					onClick={() => {
 						handleClick();
-						if (option[2] !== answer) setC("red");
+						if (option[2] !== answer) setC("rgb(243, 114, 114)");
 					}}
 					style={{ backgroundColor: c }}>
 					C. {option[2]}
@@ -56,7 +57,7 @@ const Quiz = () => {
 				<p
 					onClick={() => {
 						handleClick();
-						if (option[3] !== answer) setD("red");
+						if (option[3] !== answer) setD("rgb(243, 114, 114)");
 					}}
 					style={{ backgroundColor: d }}>
 					D. {option[3]}
@@ -67,6 +68,7 @@ const Quiz = () => {
 					onClick={() => {
 						i > 0 && setI(i - 1);
 						clearState();
+						props.toogle();
 					}}
 					className='button'>
 					Prev
@@ -75,6 +77,7 @@ const Quiz = () => {
 					onClick={() => {
 						i < questions.length - 1 && setI(i + 1);
 						clearState();
+						props.toogle();
 					}}
 					className='button'>
 					Next

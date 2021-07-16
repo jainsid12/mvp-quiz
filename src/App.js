@@ -3,27 +3,31 @@ import Quiz from "./Quiz";
 import "./App.css";
 
 // 1. write your team name below inside double quotes
-// 2. edit your course name in line 33
+// 2. edit your course name in line 38
 
 function App() {
 	const teamA = [
 		"Tattvam Jain",
+		"Nabh Jain",
+		"Prasiddhi Jain",
 		"Sukriti Jain",
-		"Arjav Jain",
 		"Mardav Jain",
-		"Deshna Jain",
+		"Akshat Jain",
+		"Pritinker Jain",
 	];
 	const teamB = [
 		"Aadita Jain",
 		"Anvi Jain",
-		"Prasiddhi Jain",
-		"Pritinker Jain",
-		"Utkarsh Jain",
+		"Deshna Jain",
+		"Aarohi Jain",
+		"Arjav Jain",
 		"Gyayak Jain",
+		"Utkarsh Jain",
 	];
 
 	const [scoreA, setScoreA] = useState(0);
 	const [scoreB, setScoreB] = useState(0);
+	const [toogle, setToogle] = useState(false);
 
 	return (
 		<div className='root'>
@@ -32,12 +36,17 @@ function App() {
 			</h1>
 			<h3>मंगल प्रज्ञा - 1</h3> {/* edit your course name here (in h3) */}
 			<div className='container'>
-				<div className='team'>
-					<h2>प्रशम</h2>
+				<div
+					className='team'
+					style={{ backgroundColor: toogle ? "rgb(208, 208, 238)" : null }}>
+					<h2>अरहंत</h2>
 					<div className='score-container'>
+						<p className='point' onClick={() => setScoreA(scoreA - 1)}>
+							- 1
+						</p>
 						<p className='score'>{scoreA}</p>
 						<p className='point' onClick={() => setScoreA(scoreA + 1)}>
-							Upvote
+							+ 1
 						</p>
 					</div>
 					<ol>
@@ -47,14 +56,19 @@ function App() {
 					</ol>
 				</div>
 
-				<Quiz />
+				<Quiz toogle={() => setToogle(!toogle)} />
 
-				<div className='team'>
-					<h2>संवेग</h2>
+				<div
+					className='team'
+					style={{ backgroundColor: !toogle ? "rgb(208, 208, 238)" : null }}>
+					<h2>सिद्ध</h2>
 					<div className='score-container'>
-						<p className='score'>{scoreB}</p>
 						<p className='point' onClick={() => setScoreB(scoreB + 1)}>
-							Upvote
+							+ 1
+						</p>
+						<p className='score'>{scoreB}</p>
+						<p className='point' onClick={() => setScoreB(scoreB - 1)}>
+							- 1
 						</p>
 					</div>
 					<ol>
